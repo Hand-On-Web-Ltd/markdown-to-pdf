@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to PDF</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>📝 Markdown to PDF</h1>
+        <div class="controls">
+            <select id="theme" onchange="changeTheme()">
+                <option value="default">Default Theme</option>
+                <option value="academic">Academic</option>
+                <option value="minimal">Minimal</option>
+            </select>
+            <button onclick="downloadPDF()" class="btn-download">📄 Download PDF</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="editor-pane">
+            <textarea id="editor" placeholder="Paste your markdown here..."># Hello World
+
+This is a **markdown to PDF** converter.
+
+## Features
+
+- Live preview
+- Multiple themes
+- PDF download
+
+## Code Example
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+```
+
+## Table
+
+| Name | Role |
+|------|------|
+| Alice | Developer |
+| Bob | Designer |
+
+> This is a blockquote. It looks nice in all themes.
+
+---
+
+That's it! Click **Download PDF** to save this as a PDF file.</textarea>
+        </div>
+        <div class="preview-pane">
+            <div id="preview" class="preview-content theme-default"></div>
+        </div>
+    </main>
+
+    <footer>
+        Built by <a href="https://www.handonweb.com">Hand On Web</a> · Chester, UK
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
