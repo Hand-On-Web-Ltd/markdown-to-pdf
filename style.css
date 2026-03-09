@@ -1,0 +1,147 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 { font-size: 1.25rem; }
+
+.controls { display: flex; gap: 0.75rem; align-items: center; }
+
+select {
+    background: #334155;
+    border: 1px solid #475569;
+    color: #e2e8f0;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.btn-download {
+    background: #3b82f6;
+    border: none;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.btn-download:hover { background: #2563eb; }
+
+main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.editor-pane { border-right: 1px solid #334155; }
+
+#editor {
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    color: #e2e8f0;
+    border: none;
+    padding: 1.5rem;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+}
+
+.preview-pane {
+    overflow-y: auto;
+    background: white;
+}
+
+.preview-content {
+    padding: 2rem;
+    color: #1a1a1a;
+    min-height: 100%;
+}
+
+/* Default theme */
+.theme-default h1 { font-size: 2rem; margin-bottom: 1rem; color: #1a1a1a; border-bottom: 2px solid #3b82f6; padding-bottom: 0.5rem; }
+.theme-default h2 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; color: #1e293b; }
+.theme-default h3 { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+.theme-default p { margin-bottom: 1rem; line-height: 1.7; }
+.theme-default ul, .theme-default ol { margin: 0.5rem 0 1rem 1.5rem; }
+.theme-default li { margin-bottom: 0.25rem; line-height: 1.6; }
+.theme-default code { background: #f1f5f9; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.85em; }
+.theme-default pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1rem; }
+.theme-default pre code { background: none; padding: 0; color: inherit; }
+.theme-default blockquote { border-left: 4px solid #3b82f6; padding: 0.75rem 1rem; margin: 1rem 0; background: #f8fafc; color: #475569; }
+.theme-default table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.theme-default th, .theme-default td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
+.theme-default th { background: #f1f5f9; font-weight: 600; }
+.theme-default hr { border: none; border-top: 1px solid #e2e8f0; margin: 1.5rem 0; }
+
+/* Academic theme */
+.theme-academic { font-family: 'Georgia', 'Times New Roman', serif; max-width: 700px; margin: 0 auto; }
+.theme-academic h1 { font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
+.theme-academic h2 { font-size: 1.4rem; margin: 1.5rem 0 0.75rem; border-bottom: 1px solid #ccc; padding-bottom: 0.25rem; }
+.theme-academic p { margin-bottom: 1rem; line-height: 1.8; text-align: justify; }
+.theme-academic ul, .theme-academic ol { margin: 0.5rem 0 1rem 2rem; }
+.theme-academic li { margin-bottom: 0.3rem; line-height: 1.7; }
+.theme-academic code { background: #f5f5f5; padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.85em; }
+.theme-academic pre { background: #f5f5f5; padding: 1rem; border: 1px solid #ddd; overflow-x: auto; margin: 1rem 0; }
+.theme-academic pre code { background: none; }
+.theme-academic blockquote { border-left: 3px solid #666; padding: 0.5rem 1rem; margin: 1rem 0; font-style: italic; color: #555; }
+.theme-academic table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.theme-academic th, .theme-academic td { border: 1px solid #999; padding: 0.5rem; }
+.theme-academic th { background: #f0f0f0; }
+.theme-academic hr { border: none; border-top: 1px solid #ccc; margin: 1.5rem 0; }
+
+/* Minimal theme */
+.theme-minimal { max-width: 650px; margin: 0 auto; font-family: 'Helvetica Neue', Arial, sans-serif; }
+.theme-minimal h1 { font-size: 1.75rem; font-weight: 300; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.theme-minimal h2 { font-size: 1.25rem; font-weight: 400; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+.theme-minimal p { margin-bottom: 1rem; line-height: 1.7; color: #333; }
+.theme-minimal ul, .theme-minimal ol { margin: 0.5rem 0 1rem 1.25rem; }
+.theme-minimal li { margin-bottom: 0.2rem; color: #333; }
+.theme-minimal code { background: #f8f8f8; padding: 0.15rem 0.35rem; border-radius: 2px; font-size: 0.85em; }
+.theme-minimal pre { background: #fafafa; padding: 1rem; border-left: 3px solid #eee; overflow-x: auto; margin: 1rem 0; }
+.theme-minimal pre code { background: none; }
+.theme-minimal blockquote { border-left: 2px solid #ddd; padding: 0.5rem 1rem; margin: 1rem 0; color: #777; }
+.theme-minimal table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.theme-minimal th, .theme-minimal td { border-bottom: 1px solid #eee; padding: 0.5rem 0.75rem; text-align: left; }
+.theme-minimal th { font-weight: 600; }
+.theme-minimal hr { border: none; border-top: 1px solid #eee; margin: 2rem 0; }
+
+footer {
+    text-align: center;
+    padding: 0.75rem;
+    color: #64748b;
+    font-size: 0.8rem;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+}
+footer a { color: #60a5fa; text-decoration: none; }
+
+@media (max-width: 768px) {
+    main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+}
+
+@media print {
+    header, footer, .editor-pane { display: none !important; }
+    main { display: block !important; }
+    .preview-pane { overflow: visible !important; }
+    body { background: white; }
+}
